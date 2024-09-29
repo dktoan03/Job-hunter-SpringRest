@@ -19,7 +19,27 @@ public class UserService {
     return this.userRepository.save(user);
   }
 
+  public User getUserById(long id) {
+    return this.userRepository.findById(id).isPresent() ? this.userRepository.findById(id).get() : null;
+  }
+
+  public User updateUser(User newUser) {
+    User oldUser = this.getUserById(newUser.getId());
+    if (oldUser == null)
+      return null;
+
+    oldUser.setEmail(newUser.getEmail());
+    oldUser.setPassword(newUser.getPassword());
+    oldUser.setName(newUser.getName());
+    return this.saveUser(oldUser);
+
+  }
+
   public List<User> getAllUsers() {
     return this.userRepository.findAll();
+  }
+
+  public void deleteUserById(long id) {
+    this.userRepository.deleteById(id);
   }
 }
