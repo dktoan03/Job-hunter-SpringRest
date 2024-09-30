@@ -38,11 +38,6 @@ public class UserController {
     return ResponseEntity.status(HttpStatus.CREATED).body(newUser);
   }
 
-  @ExceptionHandler(value = IdInvalidException.class)
-  public ResponseEntity<String> handleIdException(IdInvalidException idInvalidException) {
-    return ResponseEntity.badRequest().body(idInvalidException.getMessage());
-  }
-
   @GetMapping("/users/{id}")
   public ResponseEntity<User> getUserById(@PathVariable("id") long id) throws IdInvalidException {
     if (id > 100)
