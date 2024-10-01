@@ -53,4 +53,10 @@ public class UserController {
     this.userService.deleteUserById(id);
     return ResponseEntity.ok("ok");
   }
+
+  @DeleteMapping("/users")
+  public ResponseEntity<String> deleteUser() {
+    this.userService.deleteAllUsers();
+    return ResponseEntity.ok("ok");
+  }
 }
