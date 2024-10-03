@@ -8,4 +8,6 @@ import vn.dkt.jobhunter.domain.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
+  User findByEmail(String name);
+
 }

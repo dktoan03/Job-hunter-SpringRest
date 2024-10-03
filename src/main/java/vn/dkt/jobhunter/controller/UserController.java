@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import vn.dkt.jobhunter.domain.User;
 import vn.dkt.jobhunter.service.UserService;
-import vn.dkt.jobhunter.service.error.IdInvalidException;
+import vn.dkt.jobhunter.util.error.IdInvalidException;
 
 @RestController
 public class UserController {

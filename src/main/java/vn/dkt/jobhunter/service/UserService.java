@@ -27,6 +27,10 @@ public class UserService {
     return this.userRepository.findById(id).isPresent() ? this.userRepository.findById(id).get() : null;
   }
 
+  public User getUserByEmail(String name) {
+    return this.userRepository.findByEmail(name);
+  }
+
   public User updateUser(User newUser) {
     User oldUser = this.getUserById(newUser.getId());
     if (oldUser == null)
